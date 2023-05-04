@@ -13,5 +13,7 @@ public class Aluno {
     private double peso;
     private String telefone;
     private String dataNascimento;
+
+    public void add(String string) {}
     
 }

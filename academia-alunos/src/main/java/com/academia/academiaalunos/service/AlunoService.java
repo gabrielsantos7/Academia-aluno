@@ -5,9 +5,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.academia.academiaalunos.domain.Aluno;
+import com.academia.academiaalunos.repository.AlunoRepository;
 import com.academia.academiaalunos.util.DateUtil;
 
 import java.util.ArrayList;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public class AlunoService {
@@ -36,5 +38,9 @@ public class AlunoService {
                 .filter(aluno -> aluno.getId().equals(id))
                 .findFirst()
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Não foi encontrado nenhum Aluno com o id "+id));
+    }
+
+    public static Aluno save(Aluno aluno) {
+        return AlunoRepository.save(aluno);
     }
 }
