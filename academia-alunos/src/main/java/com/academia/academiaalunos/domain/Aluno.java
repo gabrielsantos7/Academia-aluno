@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-// Testando o GitLens
+
 public class Aluno {
     private Long id;
     private String nome;
