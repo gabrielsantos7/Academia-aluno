@@ -21,7 +21,7 @@ public class AlunoService {
             new Aluno(1L, "Gabriel", 1.68,57.4, "11 11111-1111", DateUtil.formatDate(9, 4, 2005)), 
 
             new Aluno(2L, "Pedro", 1.71, 56.9, "22 22222-2222", DateUtil.formatDate(13, 2, 2004))
-            ));
+        ));
 
     }
 
