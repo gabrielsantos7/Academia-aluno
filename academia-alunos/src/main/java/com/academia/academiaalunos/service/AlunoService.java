@@ -33,7 +33,7 @@ public class AlunoService {
         return alunos.stream()
                 .filter(aluno -> aluno.getId().equals(id))
                 .findFirst()
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Não foi encontrado nenhum Aluno com o id "+id));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "O Aluno com o id " +id+ " não foi encontrado."));
     }
 
     public Aluno save(Aluno aluno) {
