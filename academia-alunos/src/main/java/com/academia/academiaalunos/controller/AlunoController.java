@@ -39,6 +39,6 @@ public class AlunoController {
 
     @PostMapping
     public ResponseEntity<Aluno> save(@RequestBody Aluno aluno){
-        return new ResponseEntity<>(AlunoService.save(aluno), HttpStatus.CREATED);
+        return new ResponseEntity<>(alunoService.save(aluno), HttpStatus.CREATED);
     }
 }

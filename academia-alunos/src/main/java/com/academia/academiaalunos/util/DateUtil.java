@@ -11,7 +11,7 @@ public class DateUtil {
         return DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").format(localDateTime);
     }
 
-    public String formatarData(int dia, int mes, int ano) {
+    public static String formatDate(int dia, int mes, int ano) {
 
         String diaStr = dia < 10 ? "0" + dia : String.valueOf(dia);
         String mesStr = mes < 10 ? "0" + mes : String.valueOf(mes);
