@@ -41,4 +41,13 @@ public class AlunoService {
         alunos.add(aluno);
         return aluno;
     }
+
+    public void delete(long id) {
+        alunos.remove(findById(id));
+    }
+
+    public void replace(Aluno aluno) {
+        delete(aluno.getId());
+        alunos.add(aluno);
+    }
 }
