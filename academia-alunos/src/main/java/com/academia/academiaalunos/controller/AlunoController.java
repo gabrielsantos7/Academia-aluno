@@ -18,7 +18,7 @@ import com.academia.academiaalunos.service.AlunoService;
 import com.academia.academiaalunos.util.DateUtil;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("alunos")
@@ -29,7 +29,7 @@ public class AlunoController {
     private final AlunoService alunoService;
 
     @GetMapping
-    public ResponseEntity<ArrayList<Aluno>> list(){
+    public ResponseEntity<List<Aluno>> list(){
         log.info(dateUtil.formatLocalDateTimeToDatabaseStyle(LocalDateTime.now()));
         return ResponseEntity.ok(alunoService.listAll());
     }

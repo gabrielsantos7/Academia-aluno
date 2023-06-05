@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-AcademiaAlunosApplication<academia-alunos>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.academia.academiaalunos.AcademiaAlunosApplication",
+      "projectName": "academia-alunos",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
