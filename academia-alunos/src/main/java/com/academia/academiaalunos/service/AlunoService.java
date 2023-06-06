@@ -8,12 +8,14 @@ import com.academia.academiaalunos.domain.Aluno;
 import com.academia.academiaalunos.repository.AlunoRepository;
 // import com.academia.academiaalunos.repository.AlunoRepository;
 //import com.academia.academiaalunos.util.DateUtil;
+import com.academia.requests.AlunoPostRequestBody;
+import com.academia.requests.AlunoPutRequestBody;
 
 import lombok.RequiredArgsConstructor;
 
 //import java.util.ArrayList;
+//import java.util.concurrent.ThreadLocalRandom;
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 @RequiredArgsConstructor
@@ -35,21 +37,39 @@ public class AlunoService {
         return alunoRepository.findAll();
     }
     
-    public Aluno findById(long id) {
+    public Aluno findByIdOrThrowBadRequestException(long id) {
         return alunoRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "O Aluno com o id " + id + " não foi encontrado."));
     }
     
-    public Aluno save(Aluno aluno) {
-        aluno.setId(ThreadLocalRandom.current().nextLong(3, 100000));
-        return alunoRepository.save(aluno);
+    public Aluno save(AlunoPostRequestBody alunoPostRequestBody) {
+        return alunoRepository.save(
+            Aluno.builder()
+                .nome(alunoPostRequestBody.getNome())
+                .altura(alunoPostRequestBody.getAltura())
+                .peso(alunoPostRequestBody.getPeso())
+                .telefone(alunoPostRequestBody.getTelefone())
+                .dataNascimento(alunoPostRequestBody.getDataNascimento())
+                .build()
+        );
+    }
+
+    public void replace(AlunoPutRequestBody alunoPutRequestBody) {
+        Aluno savedAluno = findByIdOrThrowBadRequestException(alunoPutRequestBody.getId());
+        Aluno aluno = Aluno.builder()
+                .id(savedAluno.getId())
+                .nome(alunoPutRequestBody.getNome())
+                .altura(alunoPutRequestBody.getAltura())
+                .peso(alunoPutRequestBody.getPeso())
+                .telefone(alunoPutRequestBody.getTelefone())
+                .dataNascimento(alunoPutRequestBody.getDataNascimento())
+                .build();
+    
+        alunoRepository.save(aluno);
     }
     
     public void delete(long id) {
-        alunoRepository.deleteById(id);
+        alunoRepository.delete(findByIdOrThrowBadRequestException(id));
     }
     
-    public void replace(Aluno aluno) {
-        alunoRepository.save(aluno);
-    }
 }

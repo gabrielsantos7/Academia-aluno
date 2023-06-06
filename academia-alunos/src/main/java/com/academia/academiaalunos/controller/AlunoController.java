@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.academia.academiaalunos.domain.Aluno;
 import com.academia.academiaalunos.service.AlunoService;
 import com.academia.academiaalunos.util.DateUtil;
+import com.academia.requests.AlunoPostRequestBody;
+import com.academia.requests.AlunoPutRequestBody;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -36,12 +38,12 @@ public class AlunoController {
 
     @GetMapping(path = "/{id}")
     public ResponseEntity<Aluno> findById(@PathVariable long id){
-        return ResponseEntity.ok(alunoService.findById(id));
+        return ResponseEntity.ok(alunoService.findByIdOrThrowBadRequestException(id));
     }
 
     @PostMapping
-    public ResponseEntity<Aluno> save(@RequestBody Aluno aluno){
-        return new ResponseEntity<>(alunoService.save(aluno), HttpStatus.CREATED);
+    public ResponseEntity<Aluno> save(@RequestBody AlunoPostRequestBody alunoPostRequestBody){
+        return new ResponseEntity<>(alunoService.save(alunoPostRequestBody), HttpStatus.CREATED);
     }
 
     @DeleteMapping(path = "/{id}")
@@ -51,8 +53,8 @@ public class AlunoController {
     }
 
     @PutMapping
-    public ResponseEntity<Void> replace(@RequestBody Aluno aluno) {
-        alunoService.replace(aluno);
+    public ResponseEntity<Void> replace(@RequestBody AlunoPutRequestBody alunoPutRequestBody) {
+        alunoService.replace(alunoPutRequestBody);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
