@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:mysql://aws.connect.psdb.cloud/projeto-academia?sslMode=VERIFY_IDENTITY
-    username: svpdal9ht8dma3pgkieh
-    password: pscale_pw_sEAf914STD5dtxNSOQPDwIfJIyRnv2tT66mwYKAQxIn
+    url: 
+    username: 
+    password: 
   jpa:
     hibernate:
       ddl-auto: update
