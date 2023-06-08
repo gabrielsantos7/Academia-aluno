@@ -18,6 +18,8 @@ import lombok.RequiredArgsConstructor;
 //import java.util.concurrent.ThreadLocalRandom;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 @Service
 @RequiredArgsConstructor
 public class AlunoService {
@@ -53,6 +55,7 @@ public class AlunoService {
                 .orElseThrow(() -> new BadRequestException("O Aluno com o id " + id + " nao foi encontrado."));
     }
     
+    @Transactional
     public Aluno save(AlunoPostRequestBody alunoPostRequestBody) {
         return alunoRepository.save(
             Aluno.builder()
