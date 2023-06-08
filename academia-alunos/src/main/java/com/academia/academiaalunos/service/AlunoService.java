@@ -1,10 +1,11 @@
 package com.academia.academiaalunos.service;
 
-import org.springframework.http.HttpStatus;
+//import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
+//import org.springframework.web.server.ResponseStatusException;
 
 import com.academia.academiaalunos.domain.Aluno;
+import com.academia.academiaalunos.exception.BadRequestException;
 import com.academia.academiaalunos.repository.AlunoRepository;
 // import com.academia.academiaalunos.repository.AlunoRepository;
 //import com.academia.academiaalunos.util.DateUtil;
@@ -38,12 +39,18 @@ public class AlunoService {
     }
 
     public List<Aluno> findByNome(String nome) {
-        return alunoRepository.findByNome(nome);
+        List<Aluno> alunos = alunoRepository.findByNome(nome);
+    
+        if (alunos == null || alunos.isEmpty()) {
+            throw new BadRequestException("O Aluno com o nome " + nome + " nao foi encontrado.");
+        }
+    
+        return alunos;
     }
     
     public Aluno findByIdOrThrowBadRequestException(long id) {
         return alunoRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "O Aluno com o id " + id + " não foi encontrado."));
+                .orElseThrow(() -> new BadRequestException("O Aluno com o id " + id + " nao foi encontrado."));
     }
     
     public Aluno save(AlunoPostRequestBody alunoPostRequestBody) {
