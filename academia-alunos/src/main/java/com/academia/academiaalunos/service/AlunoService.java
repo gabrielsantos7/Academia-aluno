@@ -36,6 +36,10 @@ public class AlunoService {
     public List<Aluno> listAll() {
         return alunoRepository.findAll();
     }
+
+    public List<Aluno> findByNome(String nome) {
+        return alunoRepository.findByNome(nome);
+    }
     
     public Aluno findByIdOrThrowBadRequestException(long id) {
         return alunoRepository.findById(id)

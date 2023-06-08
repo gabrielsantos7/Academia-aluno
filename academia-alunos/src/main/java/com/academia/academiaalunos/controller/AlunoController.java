@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.academia.academiaalunos.domain.Aluno;
 import com.academia.academiaalunos.service.AlunoService;
@@ -39,6 +40,11 @@ public class AlunoController {
     @GetMapping(path = "/{id}")
     public ResponseEntity<Aluno> findById(@PathVariable long id){
         return ResponseEntity.ok(alunoService.findByIdOrThrowBadRequestException(id));
+    }
+
+    @GetMapping(path = "/find")
+    public ResponseEntity<List<Aluno>> findByNome(@RequestParam(required = false) String nome){
+        return ResponseEntity.ok(alunoService.findByNome(nome));
     }
 
     @PostMapping

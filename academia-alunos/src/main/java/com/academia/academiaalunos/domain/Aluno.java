@@ -34,3 +34,14 @@ public class Aluno {
     @Column(name = "data_nascimento")
     private LocalDate dataNascimento;
 }
+
+/* 
+Padrão de Requisição JSON
+ {
+    "nome": "João",
+    "altura": 1.68,
+    "peso": 68.1,
+    "telefone": "(11) 90909-9944",
+    "dataNascimento": "2003-10-10"
+  }
+ */
