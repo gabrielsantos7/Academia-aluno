@@ -2,6 +2,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "AcademiaAlunosApplication",
+      "request": "launch",
+      "mainClass": "com.academia.academiaalunos.AcademiaAlunosApplication",
+      "projectName": "springboot2-essentials"
+    },
+    {
+      "type": "java",
       "name": "Spring Boot-AcademiaAlunosApplication<academia-alunos>",
       "request": "launch",
       "cwd": "${workspaceFolder}",

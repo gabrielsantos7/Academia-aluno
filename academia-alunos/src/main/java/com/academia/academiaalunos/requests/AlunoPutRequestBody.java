@@ -1,4 +1,4 @@
-package com.academia.requests;
+package com.academia.academiaalunos.requests;
 
 import java.time.LocalDate;
 import lombok.Data;

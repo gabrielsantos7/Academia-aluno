@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.academia.academiaalunos.domain.Aluno;
 import com.academia.academiaalunos.service.AlunoService;
 import com.academia.academiaalunos.util.DateUtil;
-import com.academia.requests.AlunoPostRequestBody;
-import com.academia.requests.AlunoPutRequestBody;
+import com.academia.academiaalunos.requests.AlunoPostRequestBody;
+import com.academia.academiaalunos.requests.AlunoPutRequestBody;
 
 import java.time.LocalDateTime;
 import java.util.List;

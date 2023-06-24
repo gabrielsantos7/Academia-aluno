@@ -9,8 +9,8 @@ import com.academia.academiaalunos.exception.BadRequestException;
 import com.academia.academiaalunos.repository.AlunoRepository;
 // import com.academia.academiaalunos.repository.AlunoRepository;
 //import com.academia.academiaalunos.util.DateUtil;
-import com.academia.requests.AlunoPostRequestBody;
-import com.academia.requests.AlunoPutRequestBody;
+import com.academia.academiaalunos.requests.AlunoPostRequestBody;
+import com.academia.academiaalunos.requests.AlunoPutRequestBody;
 
 import lombok.RequiredArgsConstructor;
 
