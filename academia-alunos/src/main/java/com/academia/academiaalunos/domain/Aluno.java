@@ -17,7 +17,7 @@ import javax.persistence.*;
 public class Aluno {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idAluno;
 
     @Column(name = "nome")
     private String nome;
@@ -31,8 +31,12 @@ public class Aluno {
     @Column(name = "telefone")
     private String telefone;
 
-    @Column(name = "data_nascimento")
+    @Column(name = "dataNascimento")
     private LocalDate dataNascimento;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idEndereco")
+    private Endereco endereco;
 }
 
 /* 

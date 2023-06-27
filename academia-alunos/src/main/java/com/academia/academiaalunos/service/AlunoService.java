@@ -71,7 +71,7 @@ public class AlunoService {
     public void replace(AlunoPutRequestBody alunoPutRequestBody) {
         Aluno savedAluno = findByIdOrThrowBadRequestException(alunoPutRequestBody.getId());
         Aluno aluno = Aluno.builder()
-                .id(savedAluno.getId())
+                .idAluno(savedAluno.getIdAluno())
                 .nome(alunoPutRequestBody.getNome())
                 .altura(alunoPutRequestBody.getAltura())
                 .peso(alunoPutRequestBody.getPeso())

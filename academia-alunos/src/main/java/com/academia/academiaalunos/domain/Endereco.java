@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Data
 @AllArgsConstructor
@@ -21,7 +22,7 @@ import javax.persistence.Id;
 public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idEndereco;
     
     @Column(name = "logradouro")
     private String logradouro;
@@ -40,4 +41,7 @@ public class Endereco {
 
     @Column(name = "cep")
     private String cep;
+    
+    @OneToOne(mappedBy = "endereco")
+    private Aluno aluno;
 }

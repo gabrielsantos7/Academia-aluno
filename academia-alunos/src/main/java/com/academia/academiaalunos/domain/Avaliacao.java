@@ -16,20 +16,23 @@ import java.util.List;
 public class Avaliacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idAvaliacao;
 
     @ManyToOne
-    @JoinColumn(name = "aluno_id")
+    @JoinColumn(name = "idAluno")
     private Aluno aluno;
 
+    @Column(name = "dataAvaliacao")
     private LocalDate data;
 
+    @Column(name = "peso")
     private double peso;
 
+    @Column(name = "altura")
     private double altura;
 
     @ElementCollection
-    @CollectionTable(name = "medidas", joinColumns = @JoinColumn(name = "avaliacao_id"))
+    @CollectionTable(name = "medidas", joinColumns = @JoinColumn(name = "idAvaliacao"))
     @Column(name = "valor")
     private List<Double> medidas;
 
