@@ -16,10 +16,11 @@ import java.util.List;
 public class Avaliacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idAvaliacao;
+    @Column(name = "id_avaliacao")
+    private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "idAluno")
+    @JoinColumn(name="id_aluno")
     private Aluno aluno;
 
     @Column(name = "dataAvaliacao")

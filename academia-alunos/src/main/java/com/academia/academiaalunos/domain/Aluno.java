@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
+
 import javax.persistence.*;
 
 @Data
@@ -17,7 +19,8 @@ import javax.persistence.*;
 public class Aluno {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idAluno;
+    @Column(name = "id_aluno")
+    private Long id;
 
     @Column(name = "nome")
     private String nome;
@@ -33,6 +36,9 @@ public class Aluno {
 
     @Column(name = "dataNascimento")
     private LocalDate dataNascimento;
+
+    @OneToMany(mappedBy = "aluno")
+    private List<Avaliacao> avaliacoes;
     
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idEndereco")

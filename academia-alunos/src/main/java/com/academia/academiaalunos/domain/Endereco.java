@@ -22,7 +22,8 @@ import javax.persistence.OneToOne;
 public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idEndereco;
+    @Column(name = "id_endereco")
+    private Long id;
     
     @Column(name = "logradouro")
     private String logradouro;
