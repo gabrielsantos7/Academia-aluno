@@ -24,7 +24,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
-@RequestMapping("alunos")
+@RequestMapping("alunos") // http://localhost:8080/alunos
 @Log4j2
 @RequiredArgsConstructor
 public class AlunoController {
