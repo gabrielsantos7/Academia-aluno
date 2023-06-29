@@ -37,7 +37,7 @@ public class Aluno {
     @Column(name = "dataNascimento")
     private LocalDate dataNascimento;
 
-    @OneToMany(mappedBy = "aluno")
+    @OneToMany(mappedBy = "avaliacao")
     private List<Avaliacao> avaliacoes;
     
     @OneToOne(cascade = CascadeType.ALL)
