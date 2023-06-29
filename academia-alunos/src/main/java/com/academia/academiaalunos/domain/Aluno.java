@@ -37,13 +37,14 @@ public class Aluno {
     @Column(name = "dataNascimento")
     private LocalDate dataNascimento;
 
-    @OneToMany(mappedBy = "avaliacao")
+    @OneToMany(mappedBy = "aluno")
     private List<Avaliacao> avaliacoes;
     
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idEndereco")
+    @JoinColumn(name = "id_endereco")
     private Endereco endereco;
 }
+
 
 /* 
 Padrão de Requisição JSON

@@ -33,7 +33,7 @@ public class Avaliacao {
     private double altura;
 
     @ElementCollection
-    @CollectionTable(name = "medidas", joinColumns = @JoinColumn(name = "idAvaliacao"))
+    @CollectionTable(name = "medidas", joinColumns = @JoinColumn(name = "id_avaliacao"))
     @Column(name = "valor")
     private List<Double> medidas;
 

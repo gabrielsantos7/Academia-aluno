@@ -18,7 +18,6 @@ import javax.persistence.OneToOne;
 @NoArgsConstructor
 @Embeddable
 @Builder
-@Entity
 public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
